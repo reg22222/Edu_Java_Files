@@ -1,0 +1,23 @@
+java API 수업
+ - java.lang 패키지
+   - String
+   - System
+   - Thread
+   - 예외처리
+   - 그외 클래스
+
+ - java.util 패키지
+   - Collection
+   - Date와 Calendar
+   - Scanner
+   - 그외 클래스
+
+ - java.text 패키지
+   - SimpleDateFormat
+   - DecimalFormat
+
+ - java.io 패키지
+   - File
+   - 1byte 입출력
+   - text  입출력
+   - Object 입출력 
