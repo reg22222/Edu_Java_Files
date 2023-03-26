@@ -1,24 +1,23 @@
 import java.util.*;
-
+import java.text.*;
 public class Exam_13 {
 	public static void main(String[] args) {
-		Scanner in = new Scanner(System.in);
+		Date date = new Date();
 		
-		System.out.print("인원수를 입력 : ");
-		int inwon = in.nextInt();
+		System.out.println("date = " + date);
 		
-		String[] name = new String[inwon];
-		String[] tel = new String[inwon];
+		SimpleDateFormat sdf = new SimpleDateFormat("yy-MM-dd HH:mm:ss");
+		//yy : 2자리년도, yyyy : 4자리년도
+		//MM : 월
+		//dd : 일
+		//HH : 하루를 24시간으로 나눠서 표시
+		//mm : 분
+		//ss : 초
+		//sss : 밀리세컨드
+		System.out.println(sdf.format(date));
 		
-		for(int i=0; i<inwon; ++i) {
-			System.out.print(i+1+"번째 이름 : ");
-			name[i] = in.next();
-			System.out.print(i+1+"번째 전화번호 : ");
-			tel[i] = in.next();
-		}
-		
-		for(int i=0; i<inwon; ++i) {
-			System.out.printf("%s님의 전화번호 : %s\n", name[i], tel[i]);
-		}
+		int money = 10000000;
+		DecimalFormat df = new DecimalFormat("###,###");
+		System.out.println("현재 가진 돈 : " + df.format(money));
 	}
 }

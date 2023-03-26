@@ -1,28 +1,77 @@
-//import java.lang.*; - jvm이 제일먼저 자동으로 호출하는 패키지
-class A09{
-	int a = 10;
+class Point2d{
+	int x;
+	int y;
+	public Point2d() {
+		x = 100;
+		y = 125;
+	}
 	public void disp() {
-		System.out.println("a = " + a);
+		System.out.println("좌표 : [" + x + " , " + y + "]");
+	}
+}
+class Point3d extends Point2d{
+	int z;
+	public Point3d() {
+		z = 150;
+	}
+	public void disp() {
+		System.out.println("좌표 : [" + x + " , " + y + " , " + z +"]");
 	}
 }
 public class Exam_09 {
 	public static void main(String[] args) {
-		for(int i=0; i<args.length; ++i) {
-			System.out.println(args[i]);
-		}
+		Point2d p2 = new Point3d();//업캐스팅
+		Point3d p3 = (Point3d)p2;
+		p2.disp();
 		/*
-		//Math.PI = 111;	//final필드라서 못 고친다
-		System.out.println("반지름 5인 원의 넓이 : " + 5*5*Math.PI);
-		//static멤버라서 클래스이름으로 접근한다
-		//접근제한자가 public이라서 어디서든 접근이 가능(import만 되어 있으면)
-		//상수선언 : public static final 또는 public final static
-		star();
-		A09 ap = new A09();
+		//부모의 생성자로 자식의 객체를 만드는 것은 불가능!!
+		//다운캐스팅 : 강제형변환
+		//업캐스팅된 부모객체를 자식의 객체로 만들 수 있다
+		System.out.println("p2.x = " + p2.x);
+		System.out.println("p2.y = " + p2.y);
+		//업캐스팅 된 부모의 객체라도 자신이 가지고 있지 않는 멤버필드는 접근하지 못한다
+		//System.out.println("p2.z = " + p2.z);
+		System.out.println("p3.x = " + p3.x);
+		System.out.println("p3.y = " + p3.y);
+		System.out.println("p3.z = " + p3.z);
+		/*
+		Point3d p3 = new Point3d();
+		Point2d p2 = p3;	
+		//자식의 생성자로 부모의 객체를 만들 수 있다
+		//업캐스팅 : 자동형변환
+		System.out.println("p2.x = " + p2.x);
+		System.out.println("p2.y = " + p2.y);
+		//업캐스팅 된 부모의 객체라도 자신이 가지고 있지 않는 멤버필드는 접근하지 못한다
+		//System.out.println("p2.z = " + p2.z);
+		System.out.println("p3.x = " + p3.x);
+		System.out.println("p3.y = " + p3.y);
+		System.out.println("p3.z = " + p3.z);
+		
+		/*
+		Point2d ap = new Point2d();
+		Point2d bp = ap;	//같은 클래스이므로 대입연산이 가능하다
+		//ap.x와 bp.x는 동일한 곳에 있는 변수다	
+		ap.x = 1000;
+		//ap.y와 bp.y는 동일한 곳에 있는 변수다
+		bp.y = 2000;
 		ap.disp();
+		bp.disp();
 		*/
 	}
-	
-	public static void star() {
-		System.out.println("*****");
-	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

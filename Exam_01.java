@@ -1,53 +1,48 @@
-class A01{
+class Outer01{
 	//멤버필드
-	int a;
-	int b;
-	int c, d, e, f, g;
+	private int a;
+	private static int b;
+	
+	//static멤버 초기화
+	static {
+		b = 20;
+	}
 	
 	//생성자
-	A01(){
+	public Outer01() {
 		a = 10;
-		b = 20;
-		c = 30;
-		d = 40;
-		e = 50;
-		f = 60;
-		g = 70;		
-	}
-	A01(int a){
-		this();	//A01()생성자를 호출, 반드시 생성자 첫째줄에 나타나야 한다
-		this.a = a;//this : 클래스내의 멤버를 지칭할때 쓰는 예약어
-	}
-	A01(int a, int b){
-		this(a);
-		//this.a = a;	
-		this.b = b;
 	}
 	
 	//멤버메소드
-	void disp() {
+	public void disp() {
 		System.out.println("a = " + a);
 		System.out.println("b = " + b);
-		//클래스 멤버와 매개변수간에 충돌이 나지 않는다면 this를 생략해서 사용할 수 있다
+		//System.out.println("c = " + c);
+		//바깥클래스에서는 내부 클래스의 멤버에 접근하지 못한다
+	}
+	
+	//중첩클래스, Inner클래스
+	class Inner01{
+		private int c;
+		public Inner01() {
+			c = 30;
+		}
+		public void disp_in() {
+			//내부클래스에서는 밖의 클래스 멤버에 마음껏 접근 가능
+			System.out.println("a = " + a);
+			System.out.println("b = " + b);
+			System.out.println("c = " + c);
+		}
+		class Inner01_Inner{}
 	}
 }
-
 public class Exam_01 {
 	public static void main(String[] args) {
-		int a = 10;//자료형  변수명;
-		int[] arr = new int[3];//자료형 배열명[] = new 자료형[갯수];
-		//arr[0], arr[1], arr[2]
-		A01 ap = new A01(10, 20);//자료형 객체명 = new 생성자호출;
+		Outer01 ot = new Outer01();
 		
-		//. : 참조연산자, 객체멤버에 접근하려는 연산자
-		ap.disp();	//메소드호출		
+		Outer01.Inner01 oi = ot.new Inner01();//일반중첩클래스 객체만들기
+		oi.disp_in();
 		
-		ap.a = 100;
-		ap.b = 200;
-		//ap.A(100);	생성자를 직접 호출 안된다
-		ap.disp();
-		//System.out.println("ap.a = " + ap.a);
-		//System.out.println("ap.b = " + ap.b);
 	}
 }
 
