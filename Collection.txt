@@ -1,0 +1,11 @@
+Collection : 무한한 데이터의 집합
+ - Set 	: HashSet, TreeSet
+   - 중복허용하지 않는다
+   - 순서를 정의하지 못한다
+ - Map	: HashMap, Hashtable, TreeMap
+   - 값을 넣을때 key와 value를 쌍으로 입력
+   - 키는 중복되면 수정이 된다
+   - value는 중복이 되어도 상관 없다
+ - List	: Vector, ArrayList, LinkedList
+   - set하고 비슷하다
+   - 중복허용, 순서가 있다
