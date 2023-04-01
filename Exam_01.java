@@ -1,61 +1,40 @@
-class Outer01{
-	//멤버필드
-	private int a;
-	private static int b;
-	
-	//static멤버 초기화
-	static {
-		b = 20;
-	}
-	
-	//생성자
-	public Outer01() {
-		a = 10;
-	}
-	
-	//멤버메소드
-	public void disp() {
-		System.out.println("a = " + a);
-		System.out.println("b = " + b);
-		//System.out.println("c = " + c);
-		//바깥클래스에서는 내부 클래스의 멤버에 접근하지 못한다
-	}
-	
-	//중첩클래스, Inner클래스
-	class Inner01{
-		private int c;
-		public Inner01() {
-			c = 30;
-		}
-		public void disp_in() {
-			//내부클래스에서는 밖의 클래스 멤버에 마음껏 접근 가능
-			System.out.println("a = " + a);
-			System.out.println("b = " + b);
-			System.out.println("c = " + c);
-		}
-		class Inner01_Inner{}
-	}
-}
+import java.util.*;
+
+//Calendar 클래스
 public class Exam_01 {
 	public static void main(String[] args) {
-		Outer01 ot = new Outer01();
+		Calendar cal = Calendar.getInstance();
+		//Date date = new Date(1999, 1, 1);
+		//System.out.println("cal = " + cal);
+		/*
+		System.out.println("년도 : " + cal.get(Calendar.YEAR));
+		System.out.println("월 : "+ (cal.get(Calendar.MONTH)+1));
+		System.out.println("일 : " + cal.get(Calendar.DAY_OF_MONTH));
+		System.out.println("시 : " + cal.get(Calendar.HOUR_OF_DAY));
+		System.out.println("분 : " + cal.get(Calendar.MINUTE));
+		System.out.println("초 : " + cal.get(Calendar.SECOND));
+		*/
+		/*
+		cal.set(Calendar.YEAR, 2023);
+		System.out.println("년도 : " + cal.get(Calendar.YEAR));
+		cal.set(Calendar.MONTH, 7);   //8월을 가르킨다. 
+		System.out.println("월 : "+ (cal.get(Calendar.MONTH)+1));
+		cal.set(Calendar.DAY_OF_MONTH, 16);
+		System.out.println("일 : " + cal.get(Calendar.DAY_OF_MONTH));
+		*/
+		cal.set(2023, 7, 16);//년, 월-1, 일
 		
-		Outer01.Inner01 oi = ot.new Inner01();//일반중첩클래스 객체만들기
-		oi.disp_in();
+		int week = cal.get(Calendar.DAY_OF_WEEK);
+		switch(week) {
+		case 1 : System.out.println("일요일"); break;
+		case 2 : System.out.println("월요일"); break;
+		case 3 : System.out.println("화요일"); break;
+		case 4 : System.out.println("수요일"); break;
+		case 5 : System.out.println("목요일"); break;
+		case 6 : System.out.println("금요일"); break;
+		case 7 : System.out.println("토요일");
+		
+		}
 		
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

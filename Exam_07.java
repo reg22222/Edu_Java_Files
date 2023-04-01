@@ -1,34 +1,47 @@
+import java.util.*;
 
-class A07{
-	int a;
-	int b;
-	public A07(int t) {
-		a = 10;
-		b = 20;
+public class Exam_07 {
+	public static void main(String[] args) {
+		ArrayList list = new ArrayList();
+		
+		list.add("유재석");
+		list.add("지석진");
+		list.add("김종국");
+		list.add("하하");
+		list.add("송지효");
+		list.add("전소민");
+		list.add("양세찬");
+		list.add("유재석");
+		
+		//list.remove("전소민");
+		list.remove(5);
+		System.out.println(list);
+		/*
+		Iterator it = list.iterator();
+		while(it.hasNext()) {
+			Object obj = it.next();
+			String name = (String)obj;
+			System.out.println(name);
+		}
+		/*
+		String[] name = new String[list.size()];
+		list.toArray(name);
+		for(int i=0; i<name.length; ++i) {
+			System.out.println(name[i]);
+		}
+		/*
+		System.out.println(list.indexOf("지석진"));
+		System.out.println(list.lastIndexOf("지석진"));
+		/*
+		for(int i=0; i<list.size(); ++i) {
+			Object obj = list.get(i);
+			String name = (String)obj;
+			System.out.println(name);
+		}
+		/*
+		System.out.println(list);
+		list.add(1, "지석진");
+		System.out.println(list);
+		*/
 	}
-	public void disp() {
-		System.out.println("a = " + a);
-		System.out.println("b = " + b);
-	}
-}
-class B07 extends A07{
-	int c;
-	int b;
-	public B07() {
-		super(10);
-		c = 30;
-		b = 100;
-	}
-	public void disp() {
-		System.out.println("a = " + a);
-		System.out.println("b = " + this.b);
-		System.out.println("c = " + c);
-	}
-}
-public class Exam_07 {	
-	public static void main(String[] args) throws Exception {
-		B07 ap = new B07();
-		ap.disp();
-	}
-
 }

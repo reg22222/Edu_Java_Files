@@ -1,23 +1,29 @@
-class Outer04{
-	public void aaa() {
-		System.out.println("aaa메소드 실행중......");
-	}
-	public void bbb() {
-		System.out.println("ddd메소드 실행중......");
-	}
-	public void ccc() {
-		System.out.println("ccc메소드 실행중......");
-	}
-}
+import java.util.Scanner;
+
 public class Exam_04 {
 	public static void main(String[] args) {
-		Outer04 ot = new Outer04() {
-			public void bbb() {
-				System.out.println("bbb메소드 실행중......");
+		Scanner in = new Scanner(System.in);
+		
+		System.out.print("문자열을 입력 : ");
+		String str = in.next();
+		
+		int[] alpha = new int[26];
+		//0번방은 A의 갯수를.. 1번방은 B의 갯수를....
+		
+		for(int i=0; i<str.length(); ++i) {
+			char ch = str.charAt(i);
+			if (ch>='A' && ch<='Z') {
+				alpha[ch-65]++;	//A는 0번방, B는 1번방, C는 2번방....
+			}else if (ch>='a' && ch<='z') {
+				alpha[ch-97]++;	//a는 0번방, b는 1번방....
 			}
-		};
-		ot.aaa();
-		ot.bbb();
-		ot.ccc();
+		}
+		
+		for (int i=0; i<alpha.length; ++i) {
+			if (alpha[i] != 0) {
+				System.out.println((char)(65+i) + " => " + alpha[i]);
+				 
+			}
+		}
 	}
 }
