@@ -1,0 +1,11 @@
+File클래스
+
+byte 입출력
+ - byte출력
+   - FileOutputStream 
+   - BufferedOutputStream
+   - DataOutputStream
+ - byte입력
+   - FileInputStream
+   - BufferedInputStream
+   - DataInputStream
