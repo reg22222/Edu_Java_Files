@@ -1,67 +1,31 @@
-import java.util.*;
-
-public class Exam_05 {
-	public static void main(String[] args) {
-		HashSet set = new HashSet();
-		
-		set.add("유재석");		//add() : 데이터 삽입
-		set.add("김종국");
-		set.add("송지효");
-		set.add("전소민");
-		set.add("하하");
-		set.add("지석진");
-		set.add("양세찬");
-		set.add("유재석");		//중복된 데이터는 덮어써버린다
-		
-		set.remove("양세찬");		//특정 데이터 삭제!!
-		
-		Iterator it = set.iterator();
-		while(it.hasNext()) {	//현재 데이터가 존재하는지 안하는지
-			Object obj = it.next();
-			String name = (String)obj;
-			System.out.println(name);
-		}
-		/*
-		String[] name = new String[set.size()];
-		set.toArray(name);
-		for(int i=0; i<name.length; ++i) {
-			System.out.println(name[i]);
-		}
-		/*
-		String name = "유재석";
-		
-		if (set.contains(name)) {
-			System.out.println(name+"님은 런닝맨 멤버!!");
-		}else {
-			System.out.println(name+"님은 런닝맨 멤버가 아닙니다.");
-		}
-		/*
-		 * 
-		//System.out.println(set);
-		//System.out.println("set의 크기 : " + set.size());
-		set.clear();			//데이터 모두 비우기
-		//System.out.println("clear한 후 set의 크기 : " + set.size());
-		if (set.isEmpty()) {	//데이터 없는지, 있는지
-			System.out.println("데이터 없다");
-		}else {
-			System.out.println("데이터 있다");
-		}
-		*/
+class MyThread05 extends Thread{
+	public void run() {
+		System.out.println("MyThread05 클래스가 실행 중 입니다.");
 	}
 }
 
+class MyThread06 implements Runnable{
+	public void run() {
+		System.out.println("MyThread06클래스가 실행 중 입니다.");
+	}
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+public class Exam_05 {
+	public static void main(String[] args) {
+		System.out.println("main 클래스 실행중......");
+		MyThread06 mth = new MyThread06();
+		Thread th = new Thread(mth);
+		//Runnable을 상속받은 클래스는 start메소드가 없다.
+		//이때, Thread클래스 객체를 만들때 Runnable타입의 객체를 받아 Thread객체를 만들 수 있다
+		//그래서 새로운 Thread클래스를 선언하고, 그 새로운 Thread클래스의 start메소드를 실행시키면
+		//Runnable을 상속받아 만든 클래스의 run메소드를 새로운 Thread영역에서 실행시킨다
+		th.start();
+		/*
+		MyThread05 th = new MyThread05();
+		//th.run();	//단일스레드
+		th.start(); //멀티스레드로 처리하라는 명령
+		//이 객체(Thread를 상속받은)를 새로운 스레드 영역에서 run메소드를 실행시켜 주세요
+		 */
+		System.out.println("main 클래스 종료......");
+	}
+}

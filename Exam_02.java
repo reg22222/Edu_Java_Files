@@ -1,43 +1,25 @@
 import java.util.*;
 
 public class Exam_02 {
-	public static void main(String[] args) {
+	public static void main(String[] args){
 		Scanner in = new Scanner(System.in);
-		
-		System.out.print("년도 : ");
-		int year = in.nextInt();
-		System.out.print("월 : ");
-		int month = in.nextInt();
-		
-		Calendar cal = Calendar.getInstance();
-		cal.set(year, month-1, 1);
-		int week = cal.get(Calendar.DAY_OF_WEEK);
-		int lastDay = cal.getActualMaximum(Calendar.DAY_OF_MONTH);
-		//이달의 마지막날을 표시
-		System.out.println("일\t월\t화\t수\t목\t금\t토");
-		for (int i=1; i<week; ++i) {
-			System.out.print("\t");
-		}
-		for (int i=1; i<=lastDay; ++i) {
-			System.out.print(i+"\t");
-			week++;
-			if (week>7) {
-				week = 1;
-				System.out.println();
+		while(true) {
+			try {
+				System.out.print("첫번째 수를 입력 : ");
+				int su1 = in.nextInt();
+				System.out.print("두번째 수를 입력 : ");
+				int su2 = in.nextInt();
+				
+				int res = su1 / su2;
+				
+				System.out.println("결과 : "+ res);
+				break;
+			}catch(InputMismatchException e) {
+				System.out.println("숫자만 입력해야 합니다.");
+				in.nextLine();
+			}catch(ArithmeticException e) {
+				System.out.println("0으로 나눌 수 없습니다.");
 			}
 		}
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,23 +1,22 @@
-interface A11{
-	public static final int A = 1;
-	public static int B = 2;
-	public final int C = 3;
-	public int D = 4;
-	int E = 5;
-	//private int F = 6;
-	public abstract void disp();
-	public void disp2();// {System.out.println("aaa");}
-	void disp3();
-	//private void disp4();
-	class Inner11{}
-}
+import java.io.*;
+
 public class Exam_11 {
-	public static void main(String[] args) {
-		System.out.println("A11.A = "+ A11.A);
-		//A11.A = 100; 
-		//A11.B = 100;
-		System.out.println("A11.C = " + A11.C);
+	public static void main(String[] args) throws IOException {
+		File dir = new File("E:\\weekJava\\study\\day08");
+		File file = new File(dir, "aaa.txt");
 		
-		A11.Inner11 ai = new A11.Inner11();
+		FileInputStream fis = new FileInputStream(file);
+		//FileOutputStream에서 file클래스의 실제 값은 없어도 되나,
+		//FileInputStream에서의 file클래스의 실제 값은 반드시 있어야 한다.
+		
+		while(true) {
+			int res = fis.read();
+			if (res<0) break;
+			//FileInputStream에서는 파일의 값을 1byte씩 잘라서 가져온다
+			//이때, 파일이 끝이라면 -1을 반환, 아니면 아스키코드값을 반환해 준다
+			//참고, 아스키코드값은 음수가 없다
+			//이때 나오는 -1을 EOF 라고 부른다
+			System.out.print((char)res);
+		}
 	}
 }
