@@ -1,0 +1,32 @@
+JAVA Collection
+
+set type(interface) : HashSet, Treeset 
+- 순서X, 동일데이터 허용X(똑같은 데이터를 넣으면 한번만들어감)
+List : ArrayList, Vector, Stack
+- 순서ok, 동일데이터ok
+- thread의 동기화를 지원하지 않으면 ArrayList,
+- thread의 동기화를 지원하면 Vector
+- stack : 드럼통에 차곡차곡 쌓이는 형태
+  -1,2,3번으로 넣으면 3,2,1번 순서로 나옴
+   -FILO (First In Last Out)
+   -LIFO 
+list에서 독립한 Queue type : LinkedList
+- Queue 는 1차선 일방통행 형태
+ - FIFO (First in First out)
+  - FIFO에서 변형됨
+map : HashMap, HashTable
+- Key값이 있음(Key : Value)
+
+properties : Key값과 Value값이 둘다 String으로 되어있는 Map
+
+SET
+{
+	Iterator it = hs.iterator();를 하면 데이터들이 일렬로 줄을 선다
+
+	Enumeration
+}
+MAP
+{
+	hm.KeySet()을 하면 Set주머니에 Key값이 Iterator처럼 일렬로 줄은 선다(넣은 순서대로)
+	성능은 Map이 가장 좋다
+}
